@@ -27,6 +27,7 @@
             max-width: 600px;
             width: 90%;
             z-index: 10;
+            position: relative;
         }
 
         #typewriter {
@@ -72,15 +73,14 @@
         #yesBtn { 
             background-color: #ff4d6d; 
             color: white; 
-            margin-right: 20px;
             box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+            z-index: 5;
         }
 
         #noBtn { 
             background-color: #adb5bd; 
             color: white; 
-            position: absolute;
-            right: 50px;
+            margin-left: 20px;
         }
 
         #success {
@@ -124,4 +124,46 @@
     </div>
 
     <script>
-        const message = `I know life has been tough lately, but I want you to know that I’m always here for you. I hope you continue to do great in everything— in class, with me, in life, and in the passions you want to pursue.\n\nI know I may not be the guy you’ve always wanted, but I’m trying my best every single day to become that person. I do everything I can just to be the man who is right for you.\n\nIn every problem we may encounter, please don’t hesitate to talk to me. I want us to be open with each other about everything, because you are the only one I want to marry in the future.\n\nI love you, and I hope
+        const message = `I know life has been tough lately, but I want you to know that I’m always here for you. I hope you continue to do great in everything— in class, with me, in life, and in the passions you want to pursue.\n\nI know I may not be the guy you’ve always wanted, but I’m trying my best every single day to become that person. I do everything I can just to be the man who is right for you.\n\nIn every problem we may encounter, please don’t hesitate to talk to me. I want us to be open with each other about everything, because you are the only one I want to marry in the future.\n\nI love you, and I hope you accept this invitation.`;
+
+        let i = 0;
+        function typeWriter() {
+            if (i < message.length) {
+                document.getElementById("typewriter").innerHTML += message.charAt(i);
+                i++;
+                setTimeout(typeWriter, 40);
+            } else {
+                document.getElementById('question').style.opacity = '1';
+                document.getElementById('controls').style.opacity = '1';
+            }
+        }
+
+        function moveButton() {
+            const noBtn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        }
+
+        function celebrate() {
+            document.getElementById('mainBox').style.display = 'none';
+            document.getElementById('success').style.display = 'block';
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 5000);
+        }
+
+        setInterval(createHeart, 400);
+        window.onload = typeWriter;
+    </script>
+</body>
+</html>
