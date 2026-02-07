@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Message From My Heart ❤️</title>
+    <title>For Ms. Yoshine Verances Anib ❤️</title>
     <style>
+        :root {
+            --primary-pink: #ff4d6d;
+            --soft-pink: #fce4ec;
+            --dark-pink: #d63384;
+        }
+
         body {
             display: flex;
             flex-direction: column;
@@ -16,90 +22,95 @@
             font-family: 'Georgia', serif;
             text-align: center;
             padding: 20px;
-            overflow: hidden;
+            overflow: hidden; /* Keeps hearts inside */
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" style="fill:red;"><path d="M10 18.35l-1.45-1.32C3.4 12.36 1 10.28 1 7.5 1 5.22 2.82 3.4 5.1 3.4c1.28 0 2.51.59 3.3 1.53.79-.94 2.02-1.53 3.3-1.53 2.28 0 4.1 1.82 4.1 4.1 0 2.78-2.4 4.86-7.55 9.54L10 18.35z"/></svg>'), auto;
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.9);
             padding: 40px;
             border-radius: 30px;
-            box-shadow: 0 15px 35px rgba(214, 51, 132, 0.2);
+            box-shadow: 0 15px 35px rgba(214, 51, 132, 0.15);
             max-width: 600px;
             width: 90%;
             z-index: 10;
             position: relative;
+            backdrop-filter: blur(5px);
+            border: 2px solid white;
         }
 
         #typewriter {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: #444;
-            line-height: 1.8;
-            margin-bottom: 30px;
-            min-height: 200px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            min-height: 250px;
             text-align: left;
-            border-left: 3px solid #ff4d6d;
+            border-left: 3px solid var(--primary-pink);
             padding-left: 20px;
             white-space: pre-wrap;
         }
 
         h1 { 
-            color: #d63384; 
+            color: var(--dark-pink); 
             opacity: 0; 
             transition: opacity 1s;
             font-size: 1.8rem;
+            margin: 10px 0;
         }
 
         .btn-wrapper {
             position: relative;
-            height: 80px;
-            margin-top: 30px;
-            opacity: 0;
-            transition: opacity 1s;
+            height: 100px;
             display: flex;
             justify-content: center;
             align-items: center;
+            opacity: 0;
+            transition: opacity 1s;
         }
 
         button {
-            padding: 15px 40px;
+            padding: 15px 35px;
             font-size: 1.1rem;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             font-weight: bold;
-            transition: 0.3s;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         #yesBtn { 
-            background-color: #ff4d6d; 
+            background-color: var(--primary-pink); 
             color: white; 
             box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
-            z-index: 5;
         }
 
         #noBtn { 
             background-color: #adb5bd; 
             color: white; 
             margin-left: 20px;
+            position: absolute;
         }
 
+        /* Success Screen Styles */
         #success {
             display: none;
             animation: fadeIn 1.5s;
         }
 
-        .heart {
+        .floating-heart {
             position: fixed;
             bottom: -10vh;
-            color: #ff4d6d;
+            color: var(--primary-pink);
             font-size: 20px;
-            user-select: none;
             z-index: 1;
-            animation: hearts 5s linear infinite;
+            animation: moveHearts 6s linear infinite;
+            opacity: 0.7;
         }
 
-        @keyframes hearts {
-            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+        @keyframes moveHearts {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.8; }
             100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
         }
 
@@ -120,13 +131,19 @@
 
     <div id="success">
         <h1 style="opacity: 1; font-size: 3rem;">YAY! 🥰</h1>
-        <p style="font-size: 1.5rem; color: #d63384;">I promise to keep trying my best for you, every day. <br> See you on the 14th! 🌹</p>
+        <p style="font-size: 1.4rem; color: var(--dark-pink); font-style: italic;">
+            "You just made me the happiest man alive."
+        </p>
+        <div style="font-size: 4rem;">💐🌹✨</div>
+        <p style="color: #666;">I love you, Yoshine! See you on the 14th.</p>
     </div>
 
     <script>
-        const message = `I know life has been tough lately, but I want you to know that I’m always here for you. I hope you continue to do great in everything— in class, with me, in life, and in the passions you want to pursue.\n\nI know I may not be the guy you’ve always wanted, but I’m trying my best every single day to become that person. I do everything I can just to be the man who is right for you.\n\nIn every problem we may encounter, please don’t hesitate to talk to me. I want us to be open with each other about everything, because you are the only one I want to marry in the future.\n\nI love you, and I hope you accept this invitation.`;
+        const message = `Ms. Yoshine Verances Anib,\n\nI know life hasn’t been easy lately, but please remember that you never have to face it alone. I’m always here for you—through the hard days, the quiet moments, and everything in between. I believe in you so much, and I hope you continue to shine in everything you do: in class, in life, with me, and in every passion your heart desires.\n\nI may not be the man you once imagined, but I promise you this—every single day, I am trying my hardest to become the man you deserve. I’m willing to grow, to learn, and to do everything I can just to be the right person by your side.\n\nNo matter what problems come our way, please never hesitate to talk to me. I want us to be open with each other, to understand one another deeply, and to face everything hand in hand. You are the only woman I see in my future, the one I dream of loving and marrying someday.\n\nI love you—truly and deeply—and I hope you’ll accept this invitation from my heart.`;
 
         let i = 0;
+        let yesSize = 1;
+
         function typeWriter() {
             if (i < message.length) {
                 document.getElementById("typewriter").innerHTML += message.charAt(i);
@@ -140,29 +157,41 @@
 
         function moveButton() {
             const noBtn = document.getElementById('noBtn');
+            const yesBtn = document.getElementById('yesBtn');
+            
+            // Move No button
             const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
             const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
             noBtn.style.position = 'fixed';
             noBtn.style.left = x + 'px';
             noBtn.style.top = y + 'px';
+
+            // Make Yes button bigger!
+            yesSize += 0.2;
+            yesBtn.style.transform = `scale(${yesSize})`;
         }
 
         function celebrate() {
             document.getElementById('mainBox').style.display = 'none';
             document.getElementById('success').style.display = 'block';
+            // Create extra hearts for celebration
+            for(let i=0; i<30; i++) {
+                setTimeout(createHeart, i * 100);
+            }
         }
 
         function createHeart() {
             const heart = document.createElement('div');
-            heart.classList.add('heart');
+            heart.classList.add('floating-heart');
             heart.innerHTML = '❤️';
             heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
             document.body.appendChild(heart);
-            setTimeout(() => { heart.remove(); }, 5000);
+            setTimeout(() => heart.remove(), 6000);
         }
 
-        setInterval(createHeart, 400);
+        setInterval(createHeart, 500);
         window.onload = typeWriter;
     </script>
 </body>
