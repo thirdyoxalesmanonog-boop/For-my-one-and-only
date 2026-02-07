@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Ms. Yoshine Verances Anib ❤️</title>
+    <title>For My Baby ❤️</title>
     <style>
         :root {
             --primary-pink: #ff4d6d;
@@ -60,37 +60,29 @@
         }
 
         .btn-wrapper {
-            position: relative;
-            height: 100px;
             display: flex;
             justify-content: center;
             align-items: center;
             opacity: 0;
             transition: opacity 1s;
+            margin-top: 20px;
         }
 
         button {
-            padding: 15px 35px;
-            font-size: 1.1rem;
+            padding: 18px 50px;
+            font-size: 1.3rem;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             font-weight: bold;
-            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        #yesBtn { 
             background-color: var(--primary-pink); 
             color: white; 
             box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
-            z-index: 20;
+            transition: transform 0.3s;
         }
 
-        #noBtn { 
-            background-color: #adb5bd; 
-            color: white; 
-            margin-left: 20px;
-            position: absolute;
+        button:hover {
+            transform: scale(1.1);
         }
 
         #success {
@@ -134,8 +126,7 @@
         <h1 id="question">Will you be my Valentine? ❤️</h1>
         
         <div class="btn-wrapper" id="controls">
-            <button id="yesBtn" onclick="celebrate()">YES</button>
-            <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">NO</button>
+            <button id="yesBtn" onclick="celebrate()">YES!</button>
         </div>
     </div>
 
@@ -145,7 +136,7 @@
             "You've made me the happiest man alive."
         </p>
         <div style="font-size: 4rem;">💐🌹✨</div>
-        <p style="color: #666; margin-bottom: 5px;">I love you, Yoshine! See you soon.</p>
+        <p style="color: #666; margin-bottom: 5px;">I love you, My Baby! See you soon.</p>
         <div id="countdown">Calculating our time...</div>
     </div>
 
@@ -153,7 +144,6 @@
         const message = `Ms. Yoshine Verances Anib,\n\nI know life hasn’t been easy lately, but please remember that you never have to face it alone. I’m always here for you—through the hard days, the quiet moments, and everything in between. I believe in you so much, and I hope you continue to shine in everything you do: in class, in life, with me, and in every passion your heart desires.\n\nI may not be the man you once imagined, but I promise you this—every single day, I am trying my hardest to become the man you deserve. I’m willing to grow, to learn, and to do everything I can just to be the right person by your side.\n\nNo matter what problems come our way, please never hesitate to talk to me. I want us to be open with each other, to understand one another deeply, and to face everything hand in hand. You are the only woman I see in my future, the one I dream of loving and marrying someday.\n\nI love you—truly and deeply—and I hope you’ll accept this invitation from my heart.`;
 
         let i = 0;
-        let yesSize = 1;
 
         function typeWriter() {
             if (i < message.length) {
@@ -164,19 +154,6 @@
                 document.getElementById('question').style.opacity = '1';
                 document.getElementById('controls').style.opacity = '1';
             }
-        }
-
-        function moveButton() {
-            const noBtn = document.getElementById('noBtn');
-            const yesBtn = document.getElementById('yesBtn');
-            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-            noBtn.style.position = 'fixed';
-            noBtn.style.left = x + 'px';
-            noBtn.style.top = y + 'px';
-
-            yesSize += 0.15;
-            yesBtn.style.transform = `scale(${yesSize})`;
         }
 
         function celebrate() {
